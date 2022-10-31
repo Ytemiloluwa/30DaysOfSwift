@@ -1,3 +1,16 @@
-import UIKit
+import Foundation
 
-var greeting = "Hello, playground"
+// Constant time
+func createFirst(names: [String]) {
+    
+    if let first = names.first {
+        
+        print(first)
+    }else {
+        
+        print("no names")
+    }
+}
+
+
+createFirst(names: ["Sola", "Yemi", "Bola"])
