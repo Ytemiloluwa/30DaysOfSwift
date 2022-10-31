@@ -12,5 +12,11 @@ func createFirst(names: [String]) {
     }
 }
 
-
 createFirst(names: ["Sola", "Yemi", "Bola"])
+
+func printNames(names: [String]) {
+  for name in names {
+    print(name)
+  }
+}
+printNames(names: ["Sola", "Yemi", "Bola"])
