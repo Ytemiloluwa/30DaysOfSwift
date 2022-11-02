@@ -115,4 +115,51 @@ func printedSorted(_ array: [Int]) {
     }
 }
 
+var arrayOfNumbers = Array(1...100)
+func printSorted(array: [Int]) {
+    
+    // 1
+    guard !array.isEmpty else { return }
+    
+    // 2
+    var currentCount = 0
+    var minValue = Int.min
+    
+    // 3
+    for value in array {
+        
+        if value == minValue {
+            
+            print (value)
+            
+            currentCount += 1
+        }
+    }
+    
+    while currentCount < array.count {
+        
+        //4
+        var currentValue = array.max()!
+        
+        for value in array {
+            
+            if value < currentValue && value > minValue {
+                
+                currentValue = value
+            }
+        }
+        
+        for value in array {
+            
+            if value == currentValue {
+                
+                print(value)
+                currentCount += 1
+            }
+        }
+        
+        minValue = currentValue
+    }
+}
 
+//printSorted(array: arrayOfNumbers)
