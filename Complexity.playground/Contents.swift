@@ -70,3 +70,17 @@ func naiveContains(_ value : Int, In array: [Int]) -> Bool {
 }
 naiveContains(68, In: [1, 3, 56, 66, 68, 80, 99, 105, 45])
 
+// Time complexity comparison
+
+func sumFromOne(upto n: Int) -> Int {
+    
+    var result = 0
+    for i in 1...n {
+        
+        result += i
+    }
+    
+    return result
+}
+
+sumFromOne(upto: 100)
