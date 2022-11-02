@@ -91,3 +91,11 @@ func fromsumTwo(upto n: Int) -> Int {
 
 }
 fromsumTwo(upto: 100)
+
+
+func sumFromThree(upto n: Int) -> Int {
+    
+    ( n + 1 ) * n / 2
+}
+
+sumFromThree(upto: 100)
