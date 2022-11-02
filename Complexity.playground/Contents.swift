@@ -1,5 +1,7 @@
 import Foundation
 
+/* TIME COMPLEXITY */
+
 // Constant time
 func createFirst(names: [String]) {
 
@@ -99,3 +101,18 @@ func sumFromThree(upto n: Int) -> Int {
 }
 
 sumFromThree(upto: 100)
+
+
+/* SPACE COMPLEXITY */
+
+func printedSorted(_ array: [Int]) {
+    
+    let sorted = array.sorted()
+    
+    for elements in sorted {
+        
+        print(elements)
+    }
+}
+
+
