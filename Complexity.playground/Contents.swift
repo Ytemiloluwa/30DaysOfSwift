@@ -84,3 +84,10 @@ func sumFromOne(upto n: Int) -> Int {
 }
 
 sumFromOne(upto: 100)
+
+func fromsumTwo(upto n: Int) -> Int {
+    
+    (1...n).reduce(0, +)
+
+}
+fromsumTwo(upto: 100)
