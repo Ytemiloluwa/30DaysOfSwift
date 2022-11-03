@@ -116,6 +116,7 @@ func printedSorted(_ array: [Int]) {
 }
 
 var arrayOfNumbers = Array(1...100)
+
 func printSorted(array: [Int]) {
     
     // 1
@@ -163,4 +164,3 @@ func printSorted(array: [Int]) {
 }
 
 //printSorted(array: arrayOfNumbers)
-
