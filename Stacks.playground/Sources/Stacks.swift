@@ -4,7 +4,10 @@ public struct Stack: Any {
     
     private var storage: [Any] = []
     
-    public init() {}
+    public init(elements: [Any]) {
+        
+        storage = elements
+    }
     
     public mutating func push(_ element: Any) {
         
