@@ -31,8 +31,6 @@ public struct Stack<Elements> {
         peek() == nil
     
     }
-    
-    
 }
 // REVERSE AN ARRAY
 
@@ -58,35 +56,3 @@ func ReversedStackArray(_ list: [String]) {
         print(value)
     }
 }
-
-var arrray = ["A", "B", "C", "D"]
-
-print(arrray)
-ReversedStackArray(arrray)
-
-
-func checkParentheses(_ string: String)-> Bool {
-    
-    var stack = Stack<Character>()
-    
-    
-    for character in string {
-        
-        if character == "(" {
-            
-            stack.push(character)
-        }else if character == ")"{
-            if stack.isEmpty {
-                
-                return false
-            } else {
-                
-                stack.pop()
-            }
-            
-        }
-    }
-    return stack.isEmpty
-}
-
-print(checkParentheses("(Hello World !)"))
