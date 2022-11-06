@@ -2,22 +2,32 @@ import Foundation
 
 // STACK CHALLENGES
 
-public struct Stack: Any{
+public struct Stack<Element>{
     
-    private var storage: [Any] = []
+    private var storage: [Element] = []
     
     public init() {}
     
-    public mutating func push(_ elements: Any) {
+    public mutating func push(_ elements: Element) {
         
         storage.append(elements)
         
     }
     
     @discardableResult
-    public mutating func pop() -> Any? {
+    public mutating func pop() -> Element? {
         
         return storage.popLast()
+    }
+    
+    func peek() -> Element? {
+        
+        storage.last
+    }
+    
+    public var isEmpty: Bool {
+        
+        peek() == nil
     }
 }
 
@@ -33,7 +43,7 @@ print(reversedArray(Array(1...100)))
 
 func ReversedStackArray(_ list: [String]) {
     
-    var stack = Stack()
+    var stack = Stack<String>()
     
     for value in list {
         
@@ -49,3 +59,30 @@ var arrray = ["A", "B", "C", "D"]
 
 print(arrray)
 ReversedStackArray(arrray)
+
+
+func checkParentheses(_ string: String)-> Bool {
+    
+    var stack = Stack<Character>()
+    
+    
+    for character in string {
+        
+        if character == "(" {
+            
+            stack.push(character)
+        }else if character == ")"{
+            if stack.isEmpty {
+                
+                return false
+            } else {
+                
+                stack.pop()
+            }
+            
+        }
+    }
+    return stack.isEmpty
+}
+
+print(checkParentheses("(Hello World !)"))
