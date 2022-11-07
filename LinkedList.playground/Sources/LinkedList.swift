@@ -12,6 +12,16 @@ public struct LinkedList<Value> {
         head == nil
     }
     
+    // Push or head - first Operation
+    public mutating func push(_ value: Value) {
+        
+        head = Node(value: value, nextValue: head)
+        
+        if tail == nil {
+            
+            tail = head
+        }
+    }
 }
 extension LinkedList: CustomStringConvertible {
     
