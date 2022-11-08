@@ -18,7 +18,6 @@ print(node3)
 print(node4)
 print(node5)
 
-
 // Push Operation
 var list = LinkedList<Int>()
 
@@ -29,5 +28,9 @@ list.push(1)
 
 print(list)
 
+var list2 = LinkedList<Int>()
+list2.append(1)
+list2.append(2)
+list2.append(3)
 
-
+print(list2)

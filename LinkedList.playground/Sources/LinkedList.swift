@@ -22,6 +22,23 @@ public struct LinkedList<Value> {
             tail = head
         }
     }
+    
+    // Append or tail - end insertion
+    
+    public mutating func append(_ value: Value) {
+        
+        guard !isEmpty else {
+            
+            push(value)
+            
+            return
+        }
+        
+        tail!.nextValue = Node(value: value)
+        
+        tail = tail!.nextValue
+    }
+
 }
 extension LinkedList: CustomStringConvertible {
     
