@@ -22,6 +22,51 @@ public struct LinkedList<Value> {
             tail = head
         }
     }
+    
+    // Append or tail - end insertion
+    
+    public mutating func append(_ value: Value) {
+        
+        guard !isEmpty else {
+            
+            push(value)
+            
+            return
+        }
+        
+        tail!.nextValue = Node(value: value)
+        
+        tail = tail!.nextValue
+    }
+    
+    public func node(at index: Int) -> Node<Value>? {
+        
+        var currentNode = head
+        
+        var currentIndex = 0
+        
+        while currentNode != nil && currentIndex < index {
+            
+            currentNode = currentNode!.nextValue
+            
+            currentIndex += 1
+        }
+        return currentNode
+    }
+    
+    //@discardableResult
+    public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
+        
+        guard tail !== node else {
+            append(value)
+            return tail!
+            
+        }
+        node.nextValue = Node(value: value, nextValue: node.nextValue)
+        
+        return node.nextValue!
+    }
+
 }
 extension LinkedList: CustomStringConvertible {
     
