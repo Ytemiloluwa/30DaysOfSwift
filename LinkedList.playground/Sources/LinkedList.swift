@@ -38,6 +38,34 @@ public struct LinkedList<Value> {
         
         tail = tail!.nextValue
     }
+    
+    public func node(at index: Int) -> Node<Value>? {
+        
+        var currentNode = head
+        
+        var currentIndex = 0
+        
+        while currentNode != nil && currentIndex < index {
+            
+            currentNode = currentNode!.nextValue
+            
+            currentIndex += 1
+        }
+        return currentNode
+    }
+    
+    //@discardableResult
+    public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
+        
+        guard tail !== node else {
+            append(value)
+            return tail!
+            
+        }
+        node.nextValue = Node(value: value, nextValue: node.nextValue)
+        
+        return node.nextValue!
+    }
 
 }
 extension LinkedList: CustomStringConvertible {
