@@ -51,3 +51,14 @@ for _ in 1...4 {
     middleNode = list3.insert(0, after: middleNode)
 }
 print("After inserting: \(list3)")
+
+
+var list4 = LinkedList<Int>()
+list4.push(4)
+list4.push(3)
+list4.push(2)
+list4.push(1)
+
+print("Before popping list: \(list4)")
+let poppedValue = list4.pop()
+print("After popping list4: \(list4)")
