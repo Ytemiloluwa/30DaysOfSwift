@@ -54,7 +54,7 @@ public struct LinkedList<Value> {
         return currentNode
     }
     
-    //@discardableResult
+    @discardableResult
     public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
         
         guard tail !== node else {
@@ -65,6 +65,21 @@ public struct LinkedList<Value> {
         node.nextValue = Node(value: value, nextValue: node.nextValue)
         
         return node.nextValue!
+    }
+    
+    @discardableResult public mutating func pop() -> Value? {
+        
+        defer {
+            
+            head = head?.nextValue
+            
+            if isEmpty {
+                
+                tail = nil
+            }
+        }
+        
+        return head?.value
     }
 
 }
