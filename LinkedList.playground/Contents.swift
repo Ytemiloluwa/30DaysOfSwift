@@ -62,3 +62,16 @@ list4.push(1)
 print("Before popping list: \(list4)")
 let poppedValue = list4.pop()
 print("After popping list4: \(list4)")
+
+
+var list5 = LinkedList<Int>()
+
+list5.push(4)
+list5.push(3)
+list5.push(2)
+list5.push(1)
+
+print("Before removing last node: \(list5)")
+let removeValue = list5.removeLast()
+
+print("After removing last node: \(list5)")
