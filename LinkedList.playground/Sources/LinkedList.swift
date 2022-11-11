@@ -81,6 +81,30 @@ public struct LinkedList<Value> {
         
         return head?.value
     }
+    
+    @discardableResult public mutating func removeLast() -> Value? {
+        
+        guard let head =  head else { return nil }
+        
+        guard head.nextValue != nil else { return pop()}
+        
+        var prev = head
+        
+        var current = head
+        
+        while let next = current.nextValue {
+            
+            prev = current
+            
+            current = next
+        }
+        
+        prev.nextValue = nil
+        
+        tail = prev
+        
+        return current.value
+    }
 
 }
 extension LinkedList: CustomStringConvertible {
