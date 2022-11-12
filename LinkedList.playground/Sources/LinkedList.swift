@@ -105,7 +105,21 @@ public struct LinkedList<Value> {
         
         return current.value
     }
+    
+    @discardableResult public mutating func remove(after node: Node<Value>) -> Value? {
+        defer {
+            
+            if node.nextValue === tail {
+                
+                tail = node
+            }
+            node.nextValue = node.nextValue?.nextValue
+            
+        }
 
+        return node.nextValue?.value
+    }
+    
 }
 extension LinkedList: CustomStringConvertible {
     

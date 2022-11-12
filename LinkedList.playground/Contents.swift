@@ -75,3 +75,18 @@ print("Before removing last node: \(list5)")
 let removeValue = list5.removeLast()
 
 print("After removing last node: \(list5)")
+
+
+var list6 = LinkedList<Int>()
+list6.push(4)
+list6.push(3)
+list6.push(2)
+list6.push(1)
+
+print("Before removing at particluar index: \(list6)")
+let index = 1
+let node = list.node(at: index - 1)!
+let removedValue = list6.remove(after: node)
+
+print("After removing at index: \(index): \(list6)")
+print("Removed value: " + String(describing: removeValue))
