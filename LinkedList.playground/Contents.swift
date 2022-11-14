@@ -90,3 +90,24 @@ let removedValue = list6.remove(after: node)
 
 print("After removing at index: \(index): \(list6)")
 print("Removed value: " + String(describing: removeValue))
+
+
+var list7 = LinkedList<Int>()
+for i in 0...9 {
+    
+    list7.append(i)
+
+}
+
+print("List: \(list7)")
+print("First element: \(list[list7.startIndex])")
+print("Last element: \(list[list7.endIndex])")
+//print("Index After: \(list7.index(after: node))")
+print("Array containing first 3 elements: \(Array(list7.prefix(3)))")
+print("Array containing last 3 elements: \(Array(list7.suffix(3)))")
+
+
+let sum = list7.reduce(0, +)
+print("Sum of all values: \(sum)")
+
+

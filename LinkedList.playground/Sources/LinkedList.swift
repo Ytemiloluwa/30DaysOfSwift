@@ -168,7 +168,7 @@ extension LinkedList: Collection {
     
     public var endIndex: Index {
         
-        Index(node: tail?.nextValue)
+        Index(node: tail)
     }
     
     public func index(after i: Index) -> Index {
