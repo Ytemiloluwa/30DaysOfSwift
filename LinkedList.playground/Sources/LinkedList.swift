@@ -15,6 +15,7 @@ public struct LinkedList<Value> {
     // Push or head - first Operation
     public mutating func push(_ value: Value) {
         
+        copyNodes()
         head = Node(value: value, nextValue: head)
         
         if tail == nil {
@@ -26,7 +27,7 @@ public struct LinkedList<Value> {
     // Append or tail - end insertion
     
     public mutating func append(_ value: Value) {
-        
+        copyNodes()
         guard !isEmpty else {
             
             push(value)
@@ -57,6 +58,8 @@ public struct LinkedList<Value> {
     @discardableResult
     public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
         
+        copyNodes()
+        
         guard tail !== node else {
             append(value)
             return tail!
@@ -69,6 +72,7 @@ public struct LinkedList<Value> {
     
     @discardableResult public mutating func pop() -> Value? {
         
+        copyNodes()
         defer {
             
             head = head?.nextValue
@@ -84,6 +88,7 @@ public struct LinkedList<Value> {
     
     @discardableResult public mutating func removeLast() -> Value? {
         
+        copyNodes()
         guard let head =  head else { return nil }
         
         guard head.nextValue != nil else { return pop()}
@@ -107,6 +112,8 @@ public struct LinkedList<Value> {
     }
     
     @discardableResult public mutating func remove(after node: Node<Value>) -> Value? {
+        
+        copyNodes()
         defer {
             
             if node.nextValue === tail {
@@ -120,6 +127,23 @@ public struct LinkedList<Value> {
         return node.nextValue?.value
     }
     
+    private mutating func copyNodes() {
+        
+        guard var oldNode = head else { return }
+        
+        head = Node(value: oldNode.value)
+        
+        var newNode = head
+        
+        while let nextOldNode = oldNode.nextValue {
+            newNode!.nextValue = Node(value: nextOldNode.value)
+            newNode = newNode!.nextValue
+            oldNode = nextOldNode
+            
+        }
+        
+        tail = newNode
+    }
 }
 extension LinkedList: CustomStringConvertible {
     

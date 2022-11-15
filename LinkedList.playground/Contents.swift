@@ -47,7 +47,7 @@ print("Before inserting: \(list3)")
 var middleNode = list3.node(at: 1)!
 
 for _ in 1...4 {
-    
+
     middleNode = list3.insert(0, after: middleNode)
 }
 print("After inserting: \(list3)")
@@ -94,7 +94,7 @@ print("Removed value: " + String(describing: removeValue))
 
 var list7 = LinkedList<Int>()
 for i in 0...9 {
-    
+
     list7.append(i)
 
 }
@@ -110,4 +110,34 @@ print("Array containing last 3 elements: \(Array(list7.suffix(3)))")
 let sum = list7.reduce(0, +)
 print("Sum of all values: \(sum)")
 
+var array1 = [1, 2]
+var array2 = array1
 
+print("Array One: \(array1)")
+print("Array Two: \(array2)")
+
+// adding 3 to array two
+array2.append(3)
+print("Array One: \(array1)")
+print("Array Two: \(array2)")
+
+
+print("------------------------------------------------------")
+
+// Applying copy on write
+
+
+var listOne = LinkedList<Int>()
+listOne.append(1)
+listOne.append(2)
+
+var listTwo = listOne
+
+print("List1:\(listOne)")
+print("List2:\(listTwo)")
+
+print("After appending 3 to list2")
+listTwo.append(3)
+
+print("List1:\(listOne)")
+print("List2:\(listTwo)")
