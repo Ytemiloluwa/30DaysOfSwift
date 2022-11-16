@@ -141,3 +141,21 @@ listTwo.append(3)
 
 print("List1:\(listOne)")
 print("List2:\(listTwo)")
+
+if let node = listTwo.node(at: 0) {
+    
+    listTwo.remove(after: node)
+}
+
+print("ListTwo: \(listTwo)")
+ 
+//
+//print("-----------------------------------------------------")
+//
+//print("ListOne uniquely referenced: \(isKnownUniquelyReferenced(&listOne.head))")
+//var listTwo = listOne
+//
+//print("ListOne uniquely referenced: \(isKnownUniquelyReferenced(&listOne.head))")
+
+
+
