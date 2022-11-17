@@ -47,7 +47,7 @@ print("Before inserting: \(list3)")
 var middleNode = list3.node(at: 1)!
 
 for _ in 1...4 {
-
+    
     middleNode = list3.insert(0, after: middleNode)
 }
 print("After inserting: \(list3)")
@@ -94,9 +94,9 @@ print("Removed value: " + String(describing: removeValue))
 
 var list7 = LinkedList<Int>()
 for i in 0...9 {
-
+    
     list7.append(i)
-
+    
 }
 
 print("List: \(list7)")
@@ -141,14 +141,14 @@ listTwo.append(3)
 
 print("List1:\(listOne)")
 print("List2:\(listTwo)")
+//
+//if let node = listTwo.node(at: 0) {
+//
+//    listTwo.remove(after: node)
+//}
+//
+//print("ListTwo: \(listTwo)")
 
-if let node = listTwo.node(at: 0) {
-    
-    listTwo.remove(after: node)
-}
-
-print("ListTwo: \(listTwo)")
- 
 //
 //print("-----------------------------------------------------")
 //
@@ -157,5 +157,56 @@ print("ListTwo: \(listTwo)")
 //
 //print("ListOne uniquely referenced: \(isKnownUniquelyReferenced(&listOne.head))")
 
+
+
+private func printInReverse<T>(_ node: Node<T>?) {
+    
+    guard let node = node else { return }
+    
+    printInReverse(node.nextValue)
+    
+}
+func printInReverse<T>(_ list: LinkedList<T>) {
+    
+    printInReverse(list.head)
+}
+
+var listA = LinkedList<Int>()
+listA.push(3)
+listA.push(2)
+listA.push(1)
+
+print("Original list: \(listA)")
+print("Printing in reverse:")
+printInReverse(listA)
+
+
+func RunnersTechnique<T>(_ list: LinkedList<T>) -> Node<T>? {
+    
+    var slow = list.head
+    var fast = list.head
+    
+    while let nextFast = fast?.nextValue {
+        
+        fast = nextFast.nextValue
+        slow = slow?.nextValue
+        
+    }
+    
+    return slow
+}
+
+var RunnersTechniqueList = LinkedList<Int>()
+RunnersTechniqueList.push(3)
+RunnersTechniqueList.push(2)
+RunnersTechniqueList.push(1)
+
+print(RunnersTechniqueList)
+
+if let middleNode = RunnersTechnique(RunnersTechniqueList) {
+    
+    print(middleNode)
+}
+    
 
 

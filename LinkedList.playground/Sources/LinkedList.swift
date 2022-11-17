@@ -15,7 +15,7 @@ public struct LinkedList<Value> {
     // Push or head - first Operation
     public mutating func push(_ value: Value) {
         
-        
+        copyNodes()
         head = Node(value: value, nextValue: head)
         
         if tail == nil {
@@ -28,7 +28,7 @@ public struct LinkedList<Value> {
     
     public mutating func append(_ value: Value) {
         
-      
+        copyNodes()
         guard !isEmpty else {
             
             push(value)
@@ -58,7 +58,7 @@ public struct LinkedList<Value> {
     
     @discardableResult
     public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
-        
+        copyNodes()
         
         guard tail !== node else {
             append(value)
@@ -71,7 +71,7 @@ public struct LinkedList<Value> {
     }
     
     @discardableResult public mutating func pop() -> Value? {
-        
+        copyNodes()
     
         defer {
             
@@ -88,7 +88,7 @@ public struct LinkedList<Value> {
     
     @discardableResult public mutating func removeLast() -> Value? {
         
-
+        copyNodes()
         guard let head =  head else { return nil }
         
         guard head.nextValue != nil else { return pop()}
@@ -112,49 +112,51 @@ public struct LinkedList<Value> {
     }
     
     @discardableResult public mutating func remove(after node: Node<Value>) -> Value? {
-        
-      guard let node = copyNodes(returningCopyOf: node) else { return nil }
+
+    copyNodes()
         defer {
-            
+
             if node.nextValue === tail {
-                
+
                 tail = node
             }
             node.nextValue = node.nextValue?.nextValue
-            
+
         }
-        
+
         return node.nextValue?.value
     }
     
 
-    private mutating func copyNodes(returningCopyOf node: Node<Value>?) -> Node<Value>? {
+    private mutating func copyNodes() {
         
-        guard !isKnownUniquelyReferenced(&head) else {
-            
-            return nil
-        }
-        
-        guard var oldNode = head else { return nil }
+//        guard !isKnownUniquelyReferenced(&head) else {
+//
+//            return nil
+//        }
+
+        guard var oldNode = head else { return }
         
         head = Node(value: oldNode.value)
         
         var newNode = head
-        var nodeCopy: Node<Value>?
+     //   var nodeCopy: Node<Value>?
         
         while let nextOldNode = oldNode.nextValue {
             
-            if oldNode === node {
-                
-                nodeCopy = newNode
-            }
+//            if oldNode === node {
+//
+//                nodeCopy = newNode
+//            }
             newNode!.nextValue = Node(value: nextOldNode.value)
             newNode = newNode!.nextValue
             oldNode = nextOldNode
             
         }
         
-       return nodeCopy
+        tail = newNode
+        
+     //  return nodeCopy
     }
 }
 extension LinkedList: CustomStringConvertible {
