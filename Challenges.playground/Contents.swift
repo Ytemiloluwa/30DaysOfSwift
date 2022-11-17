@@ -86,3 +86,90 @@ func checkParentheses(_ string: String)-> Bool {
 }
 
 print(checkParentheses("(Hello World !)"))
+
+// LINKED LIST CHALLNEGES
+
+public class Node<Value> {
+    
+    
+    public var value: Value
+    public var nextValue: Node?
+    
+    public init(value: Value, nextValue: Node? = nil) {
+        
+        self.value = value
+        self.nextValue = nextValue
+        
+    }
+}
+
+extension Node: CustomStringConvertible {
+    
+    public var description: String {
+        
+        guard let nextValue = nextValue else { return "\(value)" }
+        
+        return "\(value) -> " + String(describing: nextValue) + ""
+        
+    }
+}
+
+
+var node1 = Node(value: 1)
+var node2 = Node(value: 2)
+var node3 = Node(value: 3)
+var node4 = Node(value: 4)
+
+
+node1.nextValue = node2
+node2.nextValue = node3
+node3.nextValue = node4
+
+print(node1)
+print(node2)
+print(node3)
+print(node4)
+
+public struct LinkedList<Value> {
+    
+    public var head: Node<Value>?
+    public var tail: Node<Value>?
+    
+    public init(){}
+    
+    public var isEmpty: Bool {
+        
+        head == nil
+    }
+    
+    public mutating func push(_ value: Value) {
+        
+        head = Node(value: value, nextValue: head)
+        
+        if tail == nil {
+            
+            tail = head
+        }
+    }
+}
+ 
+
+func getMiddle<T>(_ list: LinkedList<T>) -> Node<T>? {
+    var slow = list.head
+    var fast = list.head
+    while let nextFast = fast?.nextValue{
+        fast = nextFast.nextValue
+        slow = slow?.nextValue
+    }
+    return slow
+    
+}
+var list = LinkedList<Int>()
+list.push(3)
+list.push(2)
+list.push(1)
+//print(list)
+if let middleNode = getMiddle(list) {
+  print(middleNode)
+}
+
