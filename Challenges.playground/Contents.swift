@@ -152,6 +152,19 @@ public struct LinkedList<Value> {
         }
     }
 }
+
+extension LinkedList: CustomStringConvertible {
+    
+    
+    public var description: String {
+        
+        
+        guard let head = head else { return " Empty List" }
+        
+        
+        return String(describing: head)
+    }
+}
  
 
 func getMiddle<T>(_ list: LinkedList<T>) -> Node<T>? {
@@ -168,7 +181,7 @@ var list = LinkedList<Int>()
 list.push(3)
 list.push(2)
 list.push(1)
-//print(list)
+print(list)
 if let middleNode = getMiddle(list) {
   print(middleNode)
 }
