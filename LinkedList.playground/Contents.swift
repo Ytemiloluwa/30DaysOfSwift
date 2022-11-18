@@ -207,6 +207,34 @@ if let middleNode = RunnersTechnique(RunnersTechniqueList) {
     
     print(middleNode)
 }
+
+extension LinkedList {
     
+    mutating func reverse() {
+        
+        tail = head
+        var prev = head
+        var current = head?.nextValue
+        prev?.nextValue = nil
+   
+        while current != nil {
+            
+            let next = current?.nextValue
+            current?.nextValue = prev
+            prev = current
+            current = next
+        }
+        
+        head = prev
+    }
+}
+
+var reverseList = LinkedList<Int>()
+reverseList.push(3)
+reverseList.push(2)
+reverseList.push(1)
 
 
+print("Original list: \(reverseList)")
+reverseList.reverse()
+print("Reversed List: \(reverseList)")
