@@ -72,7 +72,7 @@ public struct LinkedList<Value> {
     
     @discardableResult public mutating func pop() -> Value? {
         copyNodes()
-    
+        
         defer {
             
             head = head?.nextValue
@@ -112,42 +112,42 @@ public struct LinkedList<Value> {
     }
     
     @discardableResult public mutating func remove(after node: Node<Value>) -> Value? {
-
-    copyNodes()
+        
+        copyNodes()
         defer {
-
+            
             if node.nextValue === tail {
-
+                
                 tail = node
             }
             node.nextValue = node.nextValue?.nextValue
-
+            
         }
-
+        
         return node.nextValue?.value
     }
     
-
+    
     private mutating func copyNodes() {
         
-//        guard !isKnownUniquelyReferenced(&head) else {
-//
-//            return nil
-//        }
-
+        //        guard !isKnownUniquelyReferenced(&head) else {
+        //
+        //            return nil
+        //        }
+        
         guard var oldNode = head else { return }
         
         head = Node(value: oldNode.value)
         
         var newNode = head
-     //   var nodeCopy: Node<Value>?
+        //   var nodeCopy: Node<Value>?
         
         while let nextOldNode = oldNode.nextValue {
             
-//            if oldNode === node {
-//
-//                nodeCopy = newNode
-//            }
+            //            if oldNode === node {
+            //
+            //                nodeCopy = newNode
+            //            }
             newNode!.nextValue = Node(value: nextOldNode.value)
             newNode = newNode!.nextValue
             oldNode = nextOldNode
@@ -156,8 +156,9 @@ public struct LinkedList<Value> {
         
         tail = newNode
         
-     //  return nodeCopy
+        //  return nodeCopy
     }
+    
 }
 extension LinkedList: CustomStringConvertible {
     

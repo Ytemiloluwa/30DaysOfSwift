@@ -212,11 +212,13 @@ extension LinkedList {
     
     mutating func reverse() {
         
+        
+        
         tail = head
         var prev = head
         var current = head?.nextValue
         prev?.nextValue = nil
-   
+        
         while current != nil {
             
             let next = current?.nextValue
@@ -238,3 +240,98 @@ reverseList.push(1)
 print("Original list: \(reverseList)")
 reverseList.reverse()
 print("Reversed List: \(reverseList)")
+
+
+extension LinkedList {
+    
+    @discardableResult fileprivate func mergeSort<T: Comparable>(_ left: LinkedList<T>, _ right: LinkedList<T>) -> LinkedList<T> {
+         
+         guard !left.isEmpty else { return right }
+         
+         guard !right.isEmpty else { return left }
+         
+         var newHead: Node<T>?
+         
+         var tail: Node<T>?
+         
+         
+         var currentLeft = left.head
+         var currentRight = right.head
+         
+         if let leftNode = currentLeft, let rightNode = currentRight {
+             
+             if leftNode.value < rightNode.value  {
+                 
+                 newHead = leftNode
+                 currentLeft = leftNode.nextValue
+             }else {
+                 
+                 newHead = rightNode
+                 currentRight = rightNode.nextValue
+             }
+             
+             tail = newHead
+             
+         }
+         
+         while let leftNode = currentLeft, let rightNode = currentRight {
+             
+             if leftNode.value < rightNode.value {
+                 
+                 tail?.nextValue = leftNode
+                 currentLeft = leftNode.nextValue
+             }
+             else {
+                 
+                 tail?.nextValue = rightNode
+                 currentRight = rightNode.nextValue
+             }
+             tail = tail?.nextValue
+         }
+         if let leftNodes = currentLeft {
+             
+             tail?.nextValue = leftNodes
+         }
+         
+         if let rightNodes = currentRight {
+             
+             tail?.nextValue = rightNodes
+         }
+         
+         var list = LinkedList<T>()
+         list.head = newHead
+         list.tail = {
+             
+             while let next = tail?.nextValue {
+                 
+                 tail = next
+             }
+             return tail
+         }()
+         
+         return list
+    
+     }
+}
+
+
+var MergedList1 = LinkedList<Int>()
+MergedList1.push(3)
+MergedList1.push(2)
+MergedList1.push(1)
+
+var mergedList2 = LinkedList<Int>()
+mergedList2.push(6)
+mergedList2.push(5)
+mergedList2.push(4)
+
+var mergedList = LinkedList<Int>()
+let combinedList = mergedList.mergeSort(MergedList1, mergedList2)
+
+print("First List: \(MergedList1)")
+print("SecondList: \(mergedList2)")
+print("MergeList: \(combinedList)")
+
+
+//print("mergedList: \(mergedList)")
+
