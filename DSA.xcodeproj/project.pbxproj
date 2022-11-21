@@ -9,6 +9,7 @@
 /* Begin PBXFileReference section */
 		A70076782910017E0010DC27 /* Complexity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Complexity.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A73DEC7E2915C8B700AF7445 /* Challenges.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Challenges.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A7939EB3292C21A80018AB3A /* Trees.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Trees.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A7A60258290FFF1700728E90 /* DSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSA.swift; sourceTree = "<group>"; };
 		A7AC58BC2913E07600212F79 /* Stacks.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Stacks.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A7AC58BD2913E15900212F79 /* LinkedList.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LinkedList.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -18,6 +19,7 @@
 		A7A60251290FFF0800728E90 = {
 			isa = PBXGroup;
 			children = (
+				A7939EB3292C21A80018AB3A /* Trees.playground */,
 				A73DEC7E2915C8B700AF7445 /* Challenges.playground */,
 				A7AC58BD2913E15900212F79 /* LinkedList.playground */,
 				A7AC58BC2913E07600212F79 /* Stacks.playground */,
