@@ -100,7 +100,7 @@ func sumFromThree(upto n: Int) -> Int {
     ( n + 1 ) * n / 2
 }
 
-sumFromThree(upto: 100)
+print(sumFromThree(upto: 5))
 
 
 /* SPACE COMPLEXITY */

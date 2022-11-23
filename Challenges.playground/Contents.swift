@@ -186,3 +186,28 @@ if let middleNode = getMiddle(list) {
   print(middleNode)
 }
 
+//let Lists = [1, 2, 3, 4, 5]
+//
+//var sum = 0
+//
+//for total in Lists {
+//
+//    sum += total
+//}
+//
+//print("Sum of Array is: \(sum)")
+
+let Lists = [1, 2, 3, 4, 5]
+func printSumOfNumbers(_ arrays: [Int]) -> Int {
+    
+    var sum = 0
+    
+    for total in arrays {
+        
+        sum += total
+    }
+    
+    return sum
+
+}
+print("The sum of intergers in the array is: \(printSumOfNumbers(Lists))")
