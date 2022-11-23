@@ -52,3 +52,5 @@ func makeBeverageTree() -> TreeNode<String> {
 
 let tree = makeBeverageTree()
 tree.forEachDepthFirst { print($0.value) }
+
+

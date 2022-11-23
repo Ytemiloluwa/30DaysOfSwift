@@ -100,15 +100,15 @@ for i in 0...9 {
 }
 
 print("List: \(list7)")
-print("First element: \(list[list7.startIndex])")
-print("Last element: \(list[list7.endIndex])")
-//print("Index After: \(list7.index(after: node))")
-print("Array containing first 3 elements: \(Array(list7.prefix(3)))")
-print("Array containing last 3 elements: \(Array(list7.suffix(3)))")
-
-
-let sum = list7.reduce(0, +)
-print("Sum of all values: \(sum)")
+//print("First element: \(list[list7.startIndex])")
+//print("Last element: \(list[list7.endIndex])")
+////print("Index After: \(list7.index(after: node))")
+//print("Array containing first 3 elements: \(Array(list7.prefix(3)))")
+//print("Array containing last 3 elements: \(Array(list7.suffix(3)))")
+//
+//
+//let sum = list7.reduce(0, +)
+//print("Sum of all values: \(sum)")
 
 var array1 = [1, 2]
 var array2 = array1
@@ -211,9 +211,7 @@ if let middleNode = RunnersTechnique(RunnersTechniqueList) {
 extension LinkedList {
     
     mutating func reverse() {
-        
-        
-        
+
         tail = head
         var prev = head
         var current = head?.nextValue
@@ -244,7 +242,7 @@ print("Reversed List: \(reverseList)")
 
 extension LinkedList {
     
-    @discardableResult fileprivate func mergeSort<T: Comparable>(_ left: LinkedList<T>, _ right: LinkedList<T>) -> LinkedList<T> {
+     func mergeSort<T: Comparable>(_ left: LinkedList<T>, _ right: LinkedList<T>) -> LinkedList<T> {
          
          guard !left.isEmpty else { return right }
          
@@ -328,8 +326,8 @@ mergedList2.push(4)
 var mergedList = LinkedList<Int>()
 let combinedList = mergedList.mergeSort(MergedList1, mergedList2)
 
-print("First List: \(MergedList1)")
-print("SecondList: \(mergedList2)")
+//print("First List: \(MergedList1)")
+//print("SecondList: \(mergedList2)")
 print("MergeList: \(combinedList)")
 
 
