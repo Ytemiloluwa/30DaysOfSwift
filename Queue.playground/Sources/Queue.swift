@@ -11,4 +11,6 @@ public protocol Queue {
     var isEmpty: Bool { get }
     
     var peek: Element? { get }
+    
+    
 }
