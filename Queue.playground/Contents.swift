@@ -25,3 +25,22 @@ public struct QueueArray<T>: Queue {
     }
     
 }
+
+extension QueueArray: CustomStringConvertible {
+    
+    public var description: String {
+        
+        String(describing: array)
+    }
+}
+
+var queue = QueueArray<String>()
+queue.enqueue("Femi")
+queue.enqueue("Semi")
+queue.enqueue("Demi")
+queue
+queue.dequeue()
+queue
+queue.peek
+
+print(queue)
