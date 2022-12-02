@@ -84,5 +84,4 @@ public struct QueueStack<T>: Queue {
         leftStack.isEmpty && rightStack.isEmpty
     }
     
-    
 }
