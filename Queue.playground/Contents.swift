@@ -44,3 +44,38 @@ queue
 queue.peek
 
 print(queue)
+
+
+// Double Stack Implementation
+
+public struct QueueStack<T>: Queue {
+
+    private var leftStack: [T] = []
+    
+    private var rightStack: [T] = []
+    
+    public init() {}
+    
+    public mutating func enqueue(_ element: T) -> Bool {
+        
+        rightStack.append(element)
+        return true
+    }
+    
+    public func dequeue() -> Element? {
+        <#code#>
+    }
+    
+    public var peek: T? {
+        
+        !leftStack.isEmpty ? leftStack.last : rightStack.first
+        
+    }
+    
+    public var isEmpty: Bool {
+        
+        leftStack.isEmpty && rightStack.isEmpty
+    }
+    
+    
+}
