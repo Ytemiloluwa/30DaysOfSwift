@@ -62,8 +62,15 @@ public struct QueueStack<T>: Queue {
         return true
     }
     
-    public func dequeue() -> Element? {
-        <#code#>
+    public mutating func dequeue() -> T? {
+        if leftStack.isEmpty {
+            
+            leftStack = rightStack.reversed()
+            rightStack.removeAll()
+        }
+        
+        return leftStack.popLast()
+            
     }
     
     public var peek: T? {
