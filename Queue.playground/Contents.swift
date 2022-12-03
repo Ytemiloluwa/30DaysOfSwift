@@ -85,3 +85,22 @@ public struct QueueStack<T>: Queue {
     }
     
 }
+
+extension QueueStack: CustomStringConvertible {
+    
+    public var description: String {
+        
+        String(describing: leftStack.reversed() + rightStack)
+    }
+}
+
+var queuestack = QueueStack<String>()
+queuestack.enqueue("Ray")
+queuestack.enqueue("Brian")
+queuestack.enqueue("Eric")
+queuestack
+queuestack.dequeue()
+queuestack
+queuestack.peek
+
+print(queuestack)

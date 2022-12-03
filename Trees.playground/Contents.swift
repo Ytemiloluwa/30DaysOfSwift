@@ -53,4 +53,7 @@ func makeBeverageTree() -> TreeNode<String> {
 let tree = makeBeverageTree()
 tree.forEachDepthFirst { print($0.value) }
 
+//
+//let levelTree = makeBeverageTree()
+//levelTree.forEachLevelOrder{ print($0.value) }
 
