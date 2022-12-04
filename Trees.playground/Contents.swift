@@ -56,4 +56,17 @@ tree.forEachDepthFirst { print($0.value) }
 //
 //let levelTree = makeBeverageTree()
 //levelTree.forEachLevelOrder{ print($0.value) }
-
+print("-----------------------------------------")
+if let searchResult1 = tree.search("ginger ale") {
+    
+    print("Found Node: \(searchResult1.value) and \(searchResult1.children)")
+    
+    
+}
+if let searchResult2 = tree.search("Apple") {
+    
+    print("Found Node: \(searchResult2.value)")
+}else {
+    
+    print("Couldn't find Apple ")
+}

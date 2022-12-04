@@ -29,22 +29,22 @@ extension TreeNode {
     }
 }
 
-extension TreeNode {
-    
-    public func forEachLevelOrder(visit: (TreeNode) -> Void) {
-        
-        visit(self)
-        var queue = Queue<TreeNode>()
-        children.forEach{ queue.enqueue($0)}
-        
-        while let node = queue.dequeue() {
-            
-            visit(node)
-            
-            node.children.forEach{ queue.enqueue ($0)}
-        }
-    }
-}
+//extension TreeNode {
+//
+//    public func forEachLevelOrder(visit: (TreeNode) -> Void) {
+//        
+//        visit(self)
+//        var queue = Queue<TreeNode>()
+//        children.forEach{ queue.enqueue($0)}
+//
+//        while let node = queue.dequeue() {
+//
+//            visit(node)
+//
+//            node.children.forEach{ queue.enqueue ($0)}
+//        }
+//    }
+//}
 
 public struct QueueArray<T>: Queue {
     
@@ -125,5 +125,27 @@ extension QueueStack: CustomStringConvertible {
     public var description: String {
         
         String(describing: leftStack.reversed() + rightStack)
+    }
+}
+
+
+// Search Algorithm
+
+extension TreeNode where T: Equatable {
+    
+    public func search(_ value: T) -> TreeNode? {
+        
+        var result: TreeNode?
+        
+        forEachDepthFirst{ node in
+            
+            if node.value == value {
+                
+                result = node
+            }
+            
+        }
+        
+        return result
     }
 }
